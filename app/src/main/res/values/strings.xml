@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Voice&amp;Text</string>
+    <string name="recoder_image">Recoder Image</string>
+    <string name="voice_to_text">Voice To Text</string>
+    <string name="recognizeLanguage">en</string>
+    <string name="click_to_start_record">Click To Start Record</string>
+</resources>
