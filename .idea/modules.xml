@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/VoiceText.iml" filepath="$PROJECT_DIR$/VoiceText.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/javautli/javautli.iml" filepath="$PROJECT_DIR$/javautli/javautli.iml" />
     </modules>
   </component>
 </project>

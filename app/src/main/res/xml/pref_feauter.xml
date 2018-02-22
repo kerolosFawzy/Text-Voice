@@ -1,0 +1,15 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <SwitchPreference
+        android:defaultValue="true"
+        android:key="@string/Translate_option_key"
+        android:title="@string/Translate" />
+
+
+    <SwitchPreference
+        android:defaultValue="true"
+        android:key="@string/Read_text_key"
+        android:title="@string/Read_text" />
+
+
+</PreferenceScreen>

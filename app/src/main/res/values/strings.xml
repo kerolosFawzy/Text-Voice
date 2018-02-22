@@ -4,4 +4,46 @@
     <string name="voice_to_text">Voice To Text</string>
     <string name="recognizeLanguage">en</string>
     <string name="click_to_start_record">Click To Start Record</string>
+    <string name="navigatorName">Convert Text to Voice</string>
+    <string name="settings">Settings</string>
+    <string name="title_activity_settings">Settings</string>
+
+    <!-- Strings related to Settings -->
+
+    <!-- Example General settings -->
+    <string name="pref_header_Translate">Translate TO</string>
+
+    <string name="pref_title_display_name">Display name</string>
+    <string name="pref_default_display_name">John Smith</string>
+
+    //---------------------------------------------------------------
+    //choose_language in settings
+    ////ToDo make list of all possible language
+    <string name="choose_language">Language</string>
+    <string-array name="pref_example_list_titles">
+        <item>arabic</item>
+        <item>english</item>
+        <item>franch</item>
+    </string-array>
+
+    <string-array name="pref_example_list_values">
+        <item>1</item>
+        <item>0</item>
+        <item>-1</item>
+    </string-array>
+    //---------------------------------------------------------------
+
+
+    <!-- Example settings for Data & Sync -->
+    <string name="pref_header_feature">Feature</string>
+
+    <!-- Example settings for Notifications -->
+    <string name="pref_header_font_size">Font Size</string>
+
+    <string name="font_size_input">font_size_input</string>
+    <string name="Font_Size">Font Size</string>
+    <string name="Translate_option_key">Translate_option</string>
+    <string name="Translate">Translate Option</string>
+    <string name="Read_text_key">Read_text_key</string>
+    <string name="Read_text">Read copied text</string>
 </resources>
