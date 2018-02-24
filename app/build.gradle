@@ -41,5 +41,7 @@ dependencies {
     implementation 'com.android.support:design:27.0.2'
     implementation 'de.hdodenhof:circleimageview:2.2.0'
     implementation 'com.github.emrekose26:RecordButton:1.2.4'
+    implementation 'com.github.ivbaranov:materialfavoritebutton:0.1.4'
 //    implementation 'com.marytts.android:marylib:1.0.1'
+    compile project(path: ':javautli')
 }

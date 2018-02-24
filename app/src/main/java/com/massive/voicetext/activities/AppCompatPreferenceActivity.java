@@ -1,4 +1,4 @@
-package com.massive.voicetext;
+package com.massive.voicetext.activities;
 
 import android.content.res.Configuration;
 import android.os.Bundle;

@@ -1,10 +1,7 @@
-package com.massive.voicetext;
+package com.massive.voicetext.Ui;
 
 import android.content.Intent;
 import android.speech.tts.TextToSpeech;
-import android.support.annotation.BinderThread;
-import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -12,6 +9,10 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+
+import com.massive.voicetext.activities.BaseActivity;
+import com.massive.voicetext.R;
+import com.massive.voicetext.activities.SettingsActivity;
 
 import java.util.Locale;
 

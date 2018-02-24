@@ -5,9 +5,15 @@
         android:id="@+id/AppBarNavigator"
         android:title="@string/navigatorName"
         app:showAsAction="always" />
-
+    <item
+        android:id="@+id/AppbarFav"
+        android:title="Favourite"
+        app:showAsAction="never"
+        android:icon="@drawable/fav"/>
     <item
         android:id="@+id/AppbarSettings"
         android:title="@string/settings"
         app:showAsAction="never" />
+
+
 </menu>

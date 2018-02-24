@@ -3,17 +3,17 @@
     <!-- These settings headers are only used on tablets. -->
 
     <header
-        android:fragment="com.massive.voicetext.SettingsActivity$LanguagePreferenceFragment"
+        android:fragment="com.massive.voicetext.activities.SettingsActivity$LanguagePreferenceFragment"
         android:icon="@drawable/language_translate_icon"
         android:title="@string/pref_header_Translate" />
 
     <header
-        android:fragment="com.massive.voicetext.SettingsActivity$FontSizeChangePreferenceFragment"
+        android:fragment="com.massive.voicetext.activities.SettingsActivity$FontSizeChangePreferenceFragment"
         android:icon="@drawable/font_size"
         android:title="@string/pref_header_font_size" />
 
     <header
-        android:fragment="com.massive.voicetext.SettingsActivity$FeauterPreferenceFragment"
+        android:fragment="com.massive.voicetext.activities.SettingsActivity$FeauterPreferenceFragment"
         android:icon="@drawable/rocket_ship"
         android:title="@string/pref_header_feature" />
 

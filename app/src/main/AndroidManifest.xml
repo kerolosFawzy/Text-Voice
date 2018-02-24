@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.massive.voicetext">
 
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
 
     <application
@@ -9,23 +11,31 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name=".Ui.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".BaseActivity" />
+        <activity android:name=".activities.BaseActivity" />
         <activity
-            android:name=".SettingsActivity"
+            android:name=".activities.SettingsActivity"
             android:label="@string/title_activity_settings"
-            android:parentActivityName=".MainActivity">
+            android:parentActivityName=".Ui.MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.massive.voicetext.MainActivity" />
+                android:value="com.massive.voicetext.Ui.MainActivity" />
         </activity>
-        <activity android:name=".TextToVoiceActivity"></activity>
+        <activity android:name=".Ui.TextToVoiceActivity" />
+
+        <provider
+            android:name=".mcontentProvider.MyContentProvider"
+            android:authorities="com.massive.voicetext"
+            android:enabled="true"
+            android:exported="true" />
+
+        <activity android:name=".Ui.FavouritActivity"></activity>
     </application>
 
 </manifest>

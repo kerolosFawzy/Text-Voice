@@ -1,9 +1,8 @@
-package com.massive.voicetext;
+package com.massive.voicetext.activities;
 
 import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.os.Build;
 import android.os.Bundle;
@@ -15,6 +14,8 @@ import android.preference.PreferenceFragment;
 import android.preference.PreferenceManager;
 import android.view.MenuItem;
 import android.support.v4.app.NavUtils;
+
+import com.massive.voicetext.R;
 
 import java.util.List;
 
