@@ -47,4 +47,7 @@
     <string name="Read_text_key">Read_text_key</string>
     <string name="Read_text">Read copied text</string>
     <string name="enter_your_text_hear">Enter your text hear</string>
+    <string name="appwidget_text">EXAMPLE</string>
+    <string name="add_widget">Add widget</string>
+    <string name="your_favoutite_words">Your Favourite words</string>
 </resources>

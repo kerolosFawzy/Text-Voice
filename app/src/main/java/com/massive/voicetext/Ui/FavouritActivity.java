@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
+import com.massive.voicetext.GetDataFromCursor;
+import com.massive.voicetext.GetDataFromCursorInterface;
 import com.massive.voicetext.LinearAdapter;
 import com.massive.voicetext.R;
 import com.massive.voicetext.models.TextModel;
@@ -17,9 +19,7 @@ import java.util.ArrayList;
 
 public class FavouritActivity extends BaseActivity {
     Context context = this;
-    ArrayList<TextModel> TextArray = new ArrayList<TextModel>();
     RecyclerView mRecyclerView;
-
 
 
     @Override
@@ -32,25 +32,16 @@ public class FavouritActivity extends BaseActivity {
         showData();
     }
 
-    private void showData(){
-        getDataFromCursor();
+    private void showData() {
+        GetDataFromCursorInterface getData = new GetDataFromCursor();
+        ArrayList<TextModel> TextArray = new ArrayList<>();
+        TextArray = getData.GetData(context);
         if (!TextArray.isEmpty()) {
             LinearAdapter adapter = new LinearAdapter(context, TextArray);
             mRecyclerView.setAdapter(adapter);
         }
     }
 
-    private void getDataFromCursor() {
-        @SuppressLint("Recycle") Cursor mCursor = context.getContentResolver().query(Constant.Entry.FULL_URI, null, null, null, null);
-        assert mCursor != null;
-        while (mCursor.moveToNext()) {
-            TextModel textModel = new TextModel();
-            textModel.setID(mCursor.getString(mCursor.getColumnIndex("ID")));
-            textModel.setText(mCursor.getString(mCursor.getColumnIndex("text")));
 
-            TextArray.add(textModel);
-
-        }
-    }
 
 }
