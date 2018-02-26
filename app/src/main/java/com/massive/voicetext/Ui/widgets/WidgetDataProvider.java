@@ -1,6 +1,8 @@
 package com.massive.voicetext.Ui.widgets;
 
 import android.content.Context;
+import android.content.Intent;
+import android.util.Log;
 import android.widget.RemoteViews;
 import android.widget.RemoteViewsService;
 
@@ -17,10 +19,11 @@ public class WidgetDataProvider implements RemoteViewsService.RemoteViewsFactory
     private ArrayList<TextModel> TextArray;
     private GetDataFromCursorInterface getData;
 
-    WidgetDataProvider(Context applicationContext) {
+    WidgetDataProvider(Context applicationContext , Intent intent) {
         this.context = applicationContext;
         getData = new GetDataFromCursor();
         TextArray = new ArrayList<>();
+
     }
 
     @Override
@@ -34,8 +37,7 @@ public class WidgetDataProvider implements RemoteViewsService.RemoteViewsFactory
     }
 
     @Override
-    public void onDestroy() {
-    }
+    public void onDestroy() {}
 
     @Override
     public int getCount() {
@@ -45,7 +47,9 @@ public class WidgetDataProvider implements RemoteViewsService.RemoteViewsFactory
     @Override
     public RemoteViews getViewAt(int position) {
         RemoteViews remoteViews = new RemoteViews(context.getPackageName(), R.layout.widget_content);
-        remoteViews.setTextViewText(R.id.WidgetTextView, TextArray.get(position).getText());
+        String s = TextArray.get(position).getText();
+        remoteViews.setTextViewText(R.id.WidgetTextView,s );
+        Log.i("RemoteViews" , s);
         return remoteViews;
     }
 

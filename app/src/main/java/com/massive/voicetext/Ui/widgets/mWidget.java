@@ -7,6 +7,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.support.annotation.NonNull;
+import android.widget.ListView;
 import android.widget.RemoteViews;
 import android.widget.Toast;
 
@@ -44,16 +45,18 @@ public class mWidget extends AppWidgetProvider {
             RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.m_widget);
             Intent intent = new Intent(context, FavWidgetService.class);
             views.setRemoteAdapter(R.id.ContentList, intent);
+            views.setEmptyView(R.id.ContentList, R.id.EmptyView);
             updateAppWidget(context, appWidgetManager, appWidgetId);
         }
+        super.onUpdate(context, appWidgetManager, appWidgetIds);
     }
 
     @Override
     public void onReceive(Context context, Intent intent) {
         super.onReceive(context, intent);
-        if (Objects.equals(intent.getAction(), ACTION)) {
-            //Intent intent1 = new Intent(context, FavouritActivity.class);
-        }
+//        if (Objects.equals(intent.getAction(), ACTION)) {
+//            //Intent intent1 = new Intent(context, FavouritActivity.class);
+//        }
     }
 
     @Override

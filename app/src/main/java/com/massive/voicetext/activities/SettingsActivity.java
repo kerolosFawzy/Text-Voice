@@ -225,4 +225,5 @@ public class SettingsActivity extends AppCompatPreferenceActivity {
         }
     }
 }
-////TODO make language and feauter work
+//TODO make language and feauter work
+//TODO Make widget listview Works will
