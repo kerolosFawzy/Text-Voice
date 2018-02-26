@@ -8,15 +8,19 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 
+import com.google.firebase.analytics.FirebaseAnalytics;
 import com.massive.voicetext.R;
 import com.massive.voicetext.Ui.FavouritActivity;
 import com.massive.voicetext.Ui.TextToVoiceActivity;
 import com.massive.voicetext.Utlis.Constant;
 
 public class BaseActivity extends AppCompatActivity {
+    private FirebaseAnalytics mFirebaseAnalytics;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
+        fireBase();
 //        try {
 //            getSupportActionBar().setDisplayShowHomeEnabled(true);
 //            getSupportActionBar().setLogo(R.drawable.microphonelogo);
@@ -25,6 +29,14 @@ public class BaseActivity extends AppCompatActivity {
 //        } catch (NullPointerException e) {
 //            Log.e("ActionBar", e.getMessage());
 //        }
+    }
+
+    public void fireBase() {
+        Bundle bundle = new Bundle();
+        bundle.putString(FirebaseAnalytics.Param.ITEM_ID, "1");
+        bundle.putString(FirebaseAnalytics.Param.ITEM_NAME, "voice");
+        bundle.putString(FirebaseAnalytics.Param.CONTENT_TYPE, "image");
+        mFirebaseAnalytics.logEvent(FirebaseAnalytics.Event.SELECT_CONTENT, bundle);
     }
 
     @Override

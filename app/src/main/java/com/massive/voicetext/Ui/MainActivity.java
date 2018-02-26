@@ -19,6 +19,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.github.ivbaranov.mfb.MaterialFavoriteButton;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
 import com.massive.javautli.GenerateId;
 import com.massive.voicetext.Utlis.Constant;
 import com.massive.voicetext.activities.BaseActivity;
@@ -44,11 +47,16 @@ public class MainActivity extends BaseActivity {
     private static final int REQ_CODE_SPEECH_INPUT = 100;
     Context context = this;
     static String id;
+    private AdView mAdView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        mAdView =  findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
+        MobileAds.initialize(this, getString(R.string.banner_ad_unit_id));
         ButterKnife.bind(this);
         RecorderImageButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -66,10 +74,9 @@ public class MainActivity extends BaseActivity {
         }
 
         favoriteButton.setVisibility(View.GONE);
-
     }
 
-    private void ShowFavButtn(){
+    private void ShowFavButtn() {
         favoriteButton.setVisibility(View.VISIBLE);
         MaterialFavoriteButton favorite = new MaterialFavoriteButton.Builder(this).create();
         favoriteButton.setOnFavoriteChangeListener(new MaterialFavoriteButton.OnFavoriteChangeListener() {
@@ -97,12 +104,6 @@ public class MainActivity extends BaseActivity {
         });
     }
 
-//    private void getDataFromCursor() {
-//        @SuppressLint("Recycle") Cursor mCursor = context.getContentResolver().query(Constant.Entry.FULL_URI, null, null, null, null);
-//        while (mCursor.moveToNext())
-//            Log.i("Cursor", mCursor.getString(mCursor.getColumnIndex("text")));
-//    }
-
 
     private void initIntent() {
         Intent recognizerIntent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
@@ -118,6 +119,7 @@ public class MainActivity extends BaseActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
+        favoriteButton.setVisibility(View.GONE);
         switch (requestCode) {
             case REQ_CODE_SPEECH_INPUT: {
                 if (resultCode == RESULT_OK && null != data) {

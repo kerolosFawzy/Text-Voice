@@ -6,8 +6,8 @@ import android.util.Log;
 import android.widget.RemoteViews;
 import android.widget.RemoteViewsService;
 
-import com.massive.voicetext.GetDataFromCursor;
-import com.massive.voicetext.GetDataFromCursorInterface;
+import com.massive.voicetext.mcontentProvider.GetDataFromCursor;
+import com.massive.voicetext.mcontentProvider.GetDataFromCursorInterface;
 import com.massive.voicetext.R;
 import com.massive.voicetext.models.TextModel;
 

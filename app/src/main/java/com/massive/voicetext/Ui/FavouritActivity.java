@@ -1,18 +1,15 @@
 package com.massive.voicetext.Ui;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
-import android.database.Cursor;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
-import com.massive.voicetext.GetDataFromCursor;
-import com.massive.voicetext.GetDataFromCursorInterface;
+import com.massive.voicetext.mcontentProvider.GetDataFromCursor;
+import com.massive.voicetext.mcontentProvider.GetDataFromCursorInterface;
 import com.massive.voicetext.LinearAdapter;
 import com.massive.voicetext.R;
 import com.massive.voicetext.models.TextModel;
-import com.massive.voicetext.Utlis.Constant;
 import com.massive.voicetext.activities.BaseActivity;
 
 import java.util.ArrayList;

@@ -225,5 +225,10 @@ public class SettingsActivity extends AppCompatPreferenceActivity {
         }
     }
 }
-//TODO make language and feauter work
-//TODO Make widget listview Works will
+//TODO Make widget listview Works will --low
+//TODO fix favourite button for api less than 21 --low
+//TODO make my app listen for any copy
+//TODO use googletranslate api
+//TODO finish settings page
+//TODO fix views
+//TODO fix final issus

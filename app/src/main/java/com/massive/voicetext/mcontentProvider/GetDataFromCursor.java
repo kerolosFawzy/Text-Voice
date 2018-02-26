@@ -1,4 +1,4 @@
-package com.massive.voicetext;
+package com.massive.voicetext.mcontentProvider;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -9,9 +9,7 @@ import com.massive.voicetext.models.TextModel;
 
 import java.util.ArrayList;
 
-/**
- * Created by minafaw on 2/25/2018.
- */
+
 
 public class GetDataFromCursor implements GetDataFromCursorInterface{
     @Override
