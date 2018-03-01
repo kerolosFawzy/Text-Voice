@@ -3,8 +3,8 @@
     package="com.massive.voicetext">
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:icon="@mipmap/ic_launcher_foreground"
@@ -46,7 +46,12 @@
                 android:name="android.appwidget.provider"
                 android:resource="@xml/m_widget_info" />
         </receiver>
+
         <service android:name=".Ui.widgets.FavWidgetService" />
+        <service
+            android:name=".ClipboardMonitorService"
+            android:exported="false"
+            android:label="Clipboard Monitor" />
     </application>
 
 </manifest>

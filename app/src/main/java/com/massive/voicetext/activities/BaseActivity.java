@@ -2,25 +2,32 @@ package com.massive.voicetext.activities;
 
 import android.content.ContentValues;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 
 import com.google.firebase.analytics.FirebaseAnalytics;
+import com.massive.voicetext.ClipboardMonitorService;
 import com.massive.voicetext.R;
 import com.massive.voicetext.Ui.FavouritActivity;
 import com.massive.voicetext.Ui.TextToVoiceActivity;
 import com.massive.voicetext.Utlis.Constant;
+import com.massive.voicetext.clipboardcode.ClipBoardMain;
 
 public class BaseActivity extends AppCompatActivity {
     private FirebaseAnalytics mFirebaseAnalytics;
+    public ClipBoardMain clipBoardMain;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
         fireBase();
+
+        ClipboardMonitorService service = new ClipboardMonitorService();
+
 //        try {
 //            getSupportActionBar().setDisplayShowHomeEnabled(true);
 //            getSupportActionBar().setLogo(R.drawable.microphonelogo);
@@ -30,6 +37,14 @@ public class BaseActivity extends AppCompatActivity {
 //            Log.e("ActionBar", e.getMessage());
 //        }
     }
+
+//    public static void translateText(String sourceText, PrintStream out) {
+//        Translate translate = TranslateOptions.getDefaultInstance().getService();
+//
+//        String text = "Hello, world!";
+//
+//        Translation translation = translate.translate(text, TranslateOption.sourceLanguage("en"), TranslateOption.targetLanguage("ru"));
+//    }
 
     public void fireBase() {
         Bundle bundle = new Bundle();

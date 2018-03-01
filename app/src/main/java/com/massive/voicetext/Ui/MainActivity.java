@@ -1,31 +1,26 @@
 package com.massive.voicetext.Ui;
 
-import android.annotation.SuppressLint;
 import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.speech.RecognizerIntent;
-import android.support.v7.widget.AppCompatTextView;
-import android.util.Log;
 import android.util.TypedValue;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.github.ivbaranov.mfb.MaterialFavoriteButton;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.MobileAds;
 import com.massive.javautli.GenerateId;
+import com.massive.voicetext.R;
 import com.massive.voicetext.Utlis.Constant;
 import com.massive.voicetext.activities.BaseActivity;
-import com.massive.voicetext.R;
 
 import java.util.ArrayList;
 import java.util.regex.Pattern;
@@ -48,12 +43,13 @@ public class MainActivity extends BaseActivity {
     Context context = this;
     static String id;
     private AdView mAdView;
+    String TranslatedString;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        mAdView =  findViewById(R.id.adView);
+        mAdView = findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
         MobileAds.initialize(this, getString(R.string.banner_ad_unit_id));
@@ -125,11 +121,26 @@ public class MainActivity extends BaseActivity {
                 if (resultCode == RESULT_OK && null != data) {
                     ArrayList<String> result = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
                     ReturnedText.setText(result.get(0));
+//                    ReturnedText.setText(s);
                     ShowFavButtn();
                 }
                 break;
             }
         }
+//        String s = ReturnedText.getText().toString();
+//        if (!s.isEmpty()) {
+//            GoogleTranslateApi translateApi;
+//            translateApi = new GoogleTranslateApi(new NotifyChange() {
+//                @Override
+//                public void GetData(String s) {
+//                    TranslatedString=s;
+//                }
+//            });
+//            translateApi.execute(s);
+//
+////            String translated = GoogleTranslateApi.translateTextWithOptionsAndModel(s, "ar");
+//            ReturnedText.setText(TranslatedString);
+//        }
     }
 
 }

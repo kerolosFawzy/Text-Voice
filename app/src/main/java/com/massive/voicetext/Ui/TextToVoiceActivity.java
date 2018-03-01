@@ -1,8 +1,12 @@
 package com.massive.voicetext.Ui;
 
+import android.content.ClipData;
+import android.content.ClipboardManager;
+import android.content.Context;
 import android.content.Intent;
-import android.speech.tts.TextToSpeech;
 import android.os.Bundle;
+import android.speech.tts.TextToSpeech;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -10,8 +14,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-import com.massive.voicetext.activities.BaseActivity;
 import com.massive.voicetext.R;
+import com.massive.voicetext.activities.BaseActivity;
 import com.massive.voicetext.activities.SettingsActivity;
 
 import java.util.Locale;
@@ -28,6 +32,7 @@ public class TextToVoiceActivity extends BaseActivity implements TextToSpeech.On
     private int MY_DATA_CHECK_CODE = 0;
     Menu menu;
     MenuItem mMenuItem;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,6 +56,17 @@ public class TextToVoiceActivity extends BaseActivity implements TextToSpeech.On
                 speakWords(InputString);
             }
         });
+
+        ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
+        String pasteData = "";
+
+        assert clipboard != null;
+        if ((clipboard.hasPrimaryClip())) {
+            ClipData.Item item = clipboard.getPrimaryClip().getItemAt(0);
+            pasteData = item.getText().toString();
+            InputText.setText(pasteData);
+        }
+
     }
 
     private void speakWords(String speech) {
@@ -103,8 +119,13 @@ public class TextToVoiceActivity extends BaseActivity implements TextToSpeech.On
                 try {
                     mMenuItem.setTitle(getString(R.string.navigatorName));
                 } catch (NullPointerException e) {
+                    Log.e("Menu item", e.getMessage());
                 }
                 startActivity(intent2);
+                break;
+            case R.id.AppbarFav:
+                Intent intent3 = new Intent(this, FavouritActivity.class);
+                startActivity(intent3);
                 break;
         }
         return true;

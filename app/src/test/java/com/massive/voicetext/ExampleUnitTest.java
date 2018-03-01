@@ -2,8 +2,6 @@ package com.massive.voicetext;
 
 import org.junit.Test;
 
-import static org.junit.Assert.*;
-
 /**
  * Example local unit test, which will execute on the development machine (host).
  *
@@ -11,7 +9,15 @@ import static org.junit.Assert.*;
  */
 public class ExampleUnitTest {
     @Test
-    public void addition_isCorrect() throws Exception {
-        assertEquals(4, 2 + 2);
+    public void Translat_Api_text() throws Exception {
+//        Translate translate = TranslateOptions.getDefaultInstance().getService();
+////        Translate translate = TranslateOptions.newBuilder().setApiKey("AIzaSyD-N_DecE2C2R3WQjocaPA8Jzd6eZc9Hcs").build().getService();
+//        String text = "how a;re you , world!";
+//
+//        Translation translation = translate.translate(text, Translate.TranslateOption.sourceLanguage("en"), Translate.TranslateOption.targetLanguage("ar"));
+//
+//
+//        System.out.printf("Text: %s%n", text);
+//        System.out.printf("Translation: %s%n", translation.getTranslatedText());
     }
 }
