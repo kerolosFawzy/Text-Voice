@@ -52,4 +52,8 @@
     <string name="add_widget">Add widget</string>
     <string name="your_favoutite_words">Your Favourite words</string>
     <string name="empty">There is no data to Show</string>
+    <string name="rmove_from_favouirte">Remove From Favourite</string>
+    <string name="favourt_button">this is Favourite button</string>
+    <string name="text_to_voice">Text To Voice</string>
+    <string name="speak">Speak</string>
 </resources>

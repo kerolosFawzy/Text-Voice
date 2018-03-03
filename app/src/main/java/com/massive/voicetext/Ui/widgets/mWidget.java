@@ -7,14 +7,10 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.support.annotation.NonNull;
-import android.widget.ListView;
 import android.widget.RemoteViews;
-import android.widget.Toast;
 
 import com.massive.voicetext.R;
 import com.massive.voicetext.Ui.FavouritActivity;
-
-import java.util.Objects;
 
 public class mWidget extends AppWidgetProvider {
     static String ACTION = "Clicked";
@@ -31,7 +27,7 @@ public class mWidget extends AppWidgetProvider {
         MainIntent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, appWidgetId);
         MainIntent.setData(Uri.parse(MainIntent.toUri(Intent.URI_INTENT_SCHEME)));
         views.setRemoteAdapter(R.id.ContentList, MainIntent);
-//        setRemoteAdapter(context, views);
+        setRemoteAdapter(context, views);
         appWidgetManager.updateAppWidget(appWidgetId, views);
     }
 
@@ -45,6 +41,7 @@ public class mWidget extends AppWidgetProvider {
             RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.m_widget);
             Intent intent = new Intent(context, FavWidgetService.class);
             views.setRemoteAdapter(R.id.ContentList, intent);
+            setRemoteAdapter(context, views);
             views.setEmptyView(R.id.ContentList, R.id.EmptyView);
             updateAppWidget(context, appWidgetManager, appWidgetId);
         }

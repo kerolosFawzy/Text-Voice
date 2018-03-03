@@ -226,12 +226,9 @@ public class SettingsActivity extends AppCompatPreferenceActivity {
     }
 }
 //TODO Make widget listview Works will --low
-//TODO fix favourite button for api less than 21 --low
 //TODO show tap ot toast  --low
-//TODO use googletranslate api
+//TODO use googletranslate api --about to delete it
 //TODO finish settings page
-//TODO put AndroidMaryTTS library for offline Text to speache
-//TODO make two virsions 21v and 19v
 //TODO check for network avaliable
 //TODO styling my views
 //TODO fix final issus

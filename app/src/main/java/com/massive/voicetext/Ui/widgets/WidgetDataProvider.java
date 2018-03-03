@@ -6,9 +6,9 @@ import android.util.Log;
 import android.widget.RemoteViews;
 import android.widget.RemoteViewsService;
 
+import com.massive.voicetext.R;
 import com.massive.voicetext.mcontentProvider.GetDataFromCursor;
 import com.massive.voicetext.mcontentProvider.GetDataFromCursorInterface;
-import com.massive.voicetext.R;
 import com.massive.voicetext.models.TextModel;
 
 import java.util.ArrayList;
@@ -16,28 +16,35 @@ import java.util.ArrayList;
 
 public class WidgetDataProvider implements RemoteViewsService.RemoteViewsFactory {
     private Context context;
-    private ArrayList<TextModel> TextArray;
+    private ArrayList<TextModel> TextArray = new ArrayList<>();
     private GetDataFromCursorInterface getData;
+    String Tag = WidgetDataProvider.class.getSimpleName();
 
-    WidgetDataProvider(Context applicationContext , Intent intent) {
+    WidgetDataProvider(Context applicationContext, Intent intent) {
         this.context = applicationContext;
         getData = new GetDataFromCursor();
-        TextArray = new ArrayList<>();
-
+        TextArray = getData.GetData(context);
+        Log.i(Tag, " constructor array size " + TextArray.size());
     }
 
     @Override
     public void onCreate() {
-        TextArray = getData.GetData(context);
+
+        Log.i(Tag, " OnCreat array size " + TextArray.size());
+
     }
 
     @Override
     public void onDataSetChanged() {
         TextArray = getData.GetData(context);
+
+        Log.i(Tag, String.valueOf(TextArray.size()) + "  ------------Change");
+
     }
 
     @Override
-    public void onDestroy() {}
+    public void onDestroy() {
+    }
 
     @Override
     public int getCount() {
@@ -48,8 +55,9 @@ public class WidgetDataProvider implements RemoteViewsService.RemoteViewsFactory
     public RemoteViews getViewAt(int position) {
         RemoteViews remoteViews = new RemoteViews(context.getPackageName(), R.layout.widget_content);
         String s = TextArray.get(position).getText();
-        remoteViews.setTextViewText(R.id.WidgetTextView,s );
-        Log.i("RemoteViews" , s);
+        Log.i(Tag, String.valueOf(TextArray.size()) + " ------------At view");
+        remoteViews.setTextViewText(R.id.WidgetTextView, s);
+        Log.i("RemoteViews", s);
         return remoteViews;
     }
 

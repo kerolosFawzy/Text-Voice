@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:ads="http://schemas.android.com/apk/res-auto"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -24,8 +25,10 @@
     <ScrollView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
-        app:layout_constraintHorizontal_bias="0.0"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="68dp"
+        ads:layout_constraintEnd_toStartOf="@+id/RecorderImageButton"
+        ads:layout_constraintHorizontal_bias="0.031"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView">
@@ -46,11 +49,11 @@
         android:id="@+id/RecorderImageButton"
         android:layout_width="117dp"
         android:layout_height="120dp"
-        android:layout_marginBottom="112dp"
+        android:layout_marginBottom="120dp"
         android:scaleType="fitCenter"
+        ads:layout_constraintHorizontal_bias="0.966"
         app:elevation="6dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:srcCompat="@drawable/microphone" />
@@ -63,7 +66,8 @@
         android:fontFamily="sans-serif-condensed"
         android:text="@string/click_to_start_record"
         android:textStyle="italic"
-        ads:layout_constraintVertical_bias="0.13"
+        ads:layout_constraintHorizontal_bias="0.966"
+        ads:layout_constraintVertical_bias="0.0"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -73,8 +77,8 @@
         android:id="@+id/MaterialFavoriteButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="24dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginEnd="496dp"
+        android:layout_marginTop="40dp"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:mfb_animate_favorite="true"
@@ -103,19 +107,20 @@
         ads:adUnitId="@string/banner_ad_unit_id"
         ads:layout_constraintBottom_toBottomOf="parent"
         ads:layout_constraintEnd_toEndOf="parent"
+        ads:layout_constraintHorizontal_bias="0.51"
         ads:layout_constraintStart_toStartOf="parent"
-        ads:layout_constraintTop_toBottomOf="@+id/textView2" />
+        ads:layout_constraintTop_toBottomOf="@+id/textView2"
+        ads:layout_constraintVertical_bias="0.82" />
 
     <ImageButton
         android:id="@+id/FavimageButton"
         android:layout_width="90dp"
         android:layout_height="90dp"
-        ads:srcCompat="@drawable/unfav"
-        tools:layout_editor_absoluteX="1dp"
-        android:layout_marginEnd="24dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginRight="484dp"
+        android:layout_marginTop="8dp"
+        android:contentDescription="@string/favourt_button"
         android:scaleType="fitCenter"
+        ads:srcCompat="@drawable/unfav"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:contentDescription="@string/favourt_button" />
+        app:layout_constraintTop_toTopOf="parent" />
 </android.support.constraint.ConstraintLayout>

@@ -15,16 +15,14 @@ public class GetDataFromCursor implements GetDataFromCursorInterface{
     @Override
     public ArrayList<TextModel> GetData(Context context) {
         @SuppressLint("Recycle") Cursor mCursor = context.getContentResolver().query(Constant.Entry.FULL_URI, null, null, null, null);
-        ArrayList<TextModel> TextArray = new ArrayList<TextModel>();
+        ArrayList<TextModel> textArray = new ArrayList<>();
         assert mCursor != null;
         while (mCursor.moveToNext()) {
             TextModel textModel = new TextModel();
             textModel.setID(mCursor.getString(mCursor.getColumnIndex("ID")));
             textModel.setText(mCursor.getString(mCursor.getColumnIndex("text")));
-
-            TextArray.add(textModel);
-
+            textArray.add(textModel);
         }
-        return TextArray;
+        return textArray;
     }
 }

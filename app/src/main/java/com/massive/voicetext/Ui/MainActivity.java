@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.speech.RecognizerIntent;
@@ -33,6 +34,8 @@ public class MainActivity extends BaseActivity {
 
     @BindView(R.id.RecorderImageButton)
     ImageButton RecorderImageButton;
+    @BindView(R.id.FavimageButton)
+    ImageButton FavimageButton;
     @BindView(R.id.ReturnedText)
     TextView ReturnedText;
     @BindString(R.string.recognizeLanguage)
@@ -44,6 +47,8 @@ public class MainActivity extends BaseActivity {
     static String id;
     private AdView mAdView;
     String TranslatedString;
+
+ 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,14 +66,14 @@ public class MainActivity extends BaseActivity {
             }
         });
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
-        String fontSize = sharedPreferences.getString(getString(R.string.font_size_input), "");
+        String fontSize = sharedPreferences.getString(getString(R.string.font_size_input), "18");
         if (!fontSize.isEmpty()) {
             Pattern pattern = Pattern.compile("[a-zA-Z]");
             if (!pattern.matcher(fontSize).find()) {
                 ReturnedText.setTextSize(TypedValue.COMPLEX_UNIT_SP, (int) Float.parseFloat(fontSize));
             }
         }
-
+        FavimageButton.setVisibility(View.GONE);
         favoriteButton.setVisibility(View.GONE);
     }
 
@@ -100,6 +105,38 @@ public class MainActivity extends BaseActivity {
         });
     }
 
+    boolean flag;
+
+    private void ShowFavImageButtn() {
+        FavimageButton.setVisibility(View.VISIBLE);
+        flag = true;
+        FavimageButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String returnedString = null;
+                try {
+                    returnedString = ReturnedText.getText().toString();
+                } catch (Exception e) {
+                }
+                assert returnedString != null;
+                if (!returnedString.isEmpty()) {
+                    if (flag) {
+                        FavimageButton.setImageResource(R.drawable.fav);
+                        id = GenerateId.idGenerator(returnedString);
+                        ContentValues contentValues = addData(id, returnedString);
+                        Uri uri = context.getContentResolver().insert(Constant.Entry.FULL_URI, contentValues);
+                        flag = false;
+                    } else {
+                        FavimageButton.setImageResource(R.drawable.unfav);
+                        Uri uri = Constant.Entry.FULL_URI;
+                        uri = uri.buildUpon().appendPath(id).build();
+                        context.getContentResolver().delete(uri, "Id =" + id, null);
+                        flag = true;
+                    }
+                }
+            }
+        });
+    }
 
     private void initIntent() {
         Intent recognizerIntent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
@@ -121,8 +158,12 @@ public class MainActivity extends BaseActivity {
                 if (resultCode == RESULT_OK && null != data) {
                     ArrayList<String> result = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
                     ReturnedText.setText(result.get(0));
-//                    ReturnedText.setText(s);
-                    ShowFavButtn();
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                        ShowFavButtn();
+                    } else {
+                        ShowFavImageButtn();
+                    }
+
                 }
                 break;
             }
