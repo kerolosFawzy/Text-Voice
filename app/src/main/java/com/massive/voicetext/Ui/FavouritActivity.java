@@ -18,7 +18,7 @@ import com.massive.voicetext.models.TextModel;
 
 import java.util.ArrayList;
 
-public class FavouritActivity extends BaseActivity implements LoaderManager.LoaderCallbacks{
+public class FavouritActivity extends BaseActivity implements LoaderManager.LoaderCallbacks {
     Context context = this;
     RecyclerView mRecyclerView;
 
@@ -35,8 +35,7 @@ public class FavouritActivity extends BaseActivity implements LoaderManager.Load
 
     private void showData() {
         GetDataFromCursorInterface getData = new GetDataFromCursor();
-        ArrayList<TextModel> TextArray;
-        TextArray = getData.GetData(context);
+        ArrayList<TextModel> TextArray = getData.GetData(context);
         if (!TextArray.isEmpty()) {
             LinearAdapter adapter = new LinearAdapter(context, TextArray);
             mRecyclerView.setAdapter(adapter);
@@ -46,13 +45,7 @@ public class FavouritActivity extends BaseActivity implements LoaderManager.Load
 
     @Override
     public Loader onCreateLoader(int id, Bundle args) {
-        CursorLoader loader = new CursorLoader(
-                this,
-                Constant.Entry.FULL_URI ,
-                null,
-                null,
-                null,
-                null);
+        CursorLoader loader = new CursorLoader(this, Constant.Entry.FULL_URI, null, null, null, null);
         return loader;
     }
 
