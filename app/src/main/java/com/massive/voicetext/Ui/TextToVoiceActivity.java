@@ -49,7 +49,7 @@ public class TextToVoiceActivity extends BaseActivity implements TextToSpeech.On
         try {
             mMenuItem = menu.findItem(R.id.AppBarNavigator);
             mMenuItem.setTitle("Convert Speach To Text");
-        } catch (NullPointerException E) {
+        } catch (NullPointerException ignored) {
         }
         SpeakButton.setOnClickListener(new View.OnClickListener() {
             @Override

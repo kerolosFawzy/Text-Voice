@@ -2,9 +2,6 @@ package com.massive.voicetext.models;
 
 import java.io.Serializable;
 
-/**
- * Created by minafaw on 2/24/2018.
- */
 
 public class TextModel implements Serializable {
     private String ID ;

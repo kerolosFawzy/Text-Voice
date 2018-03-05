@@ -7,7 +7,7 @@
         app:showAsAction="always" />
     <item
         android:id="@+id/AppbarFav"
-        android:title="Favourite"
+        android:title="@string/favourite"
         app:showAsAction="never"
         android:icon="@drawable/fav"/>
     <item

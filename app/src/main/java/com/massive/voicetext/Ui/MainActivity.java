@@ -45,8 +45,7 @@ public class MainActivity extends BaseActivity {
     private static final int REQ_CODE_SPEECH_INPUT = 100;
     Context context = this;
     static String id;
-    private AdView mAdView;
-//    String TranslatedString;
+    //    String TranslatedString;
 
  
 
@@ -54,7 +53,7 @@ public class MainActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        mAdView = findViewById(R.id.adView);
+        AdView mAdView = findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
         MobileAds.initialize(this, getString(R.string.banner_ad_unit_id));
@@ -86,7 +85,7 @@ public class MainActivity extends BaseActivity {
                 String returnedString = null;
                 try {
                     returnedString = ReturnedText.getText().toString();
-                } catch (Exception e) {
+                } catch (Exception ignored) {
                 }
                 assert returnedString != null;
                 if (!(returnedString.isEmpty())) {
@@ -116,7 +115,7 @@ public class MainActivity extends BaseActivity {
                 String returnedString = null;
                 try {
                     returnedString = ReturnedText.getText().toString();
-                } catch (Exception e) {
+                } catch (Exception ignored) {
                 }
                 assert returnedString != null;
                 if (!returnedString.isEmpty()) {

@@ -7,6 +7,6 @@ import android.widget.RemoteViewsService;
 public class FavWidgetService extends RemoteViewsService {
     @Override
     public RemoteViewsFactory onGetViewFactory(Intent intent) {
-        return new WidgetDataProvider(this.getApplicationContext(), intent);
+        return new WidgetDataProvider(this, intent);
     }
 }

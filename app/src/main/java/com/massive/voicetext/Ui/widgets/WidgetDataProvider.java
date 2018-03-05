@@ -20,11 +20,11 @@ public class WidgetDataProvider implements RemoteViewsService.RemoteViewsFactory
 
     WidgetDataProvider(Context applicationContext, Intent intent) {
         this.context = applicationContext;
-        getData = new GetDataFromCursor();
     }
 
     @Override
     public void onCreate() {
+        getData = new GetDataFromCursor();
         TextArray = getData.GetData(context);
     }
 
@@ -35,6 +35,7 @@ public class WidgetDataProvider implements RemoteViewsService.RemoteViewsFactory
 
     @Override
     public void onDestroy() {
+
     }
 
     @Override
@@ -45,8 +46,8 @@ public class WidgetDataProvider implements RemoteViewsService.RemoteViewsFactory
     @Override
     public RemoteViews getViewAt(int position) {
         RemoteViews remoteViews = new RemoteViews(context.getPackageName(), R.layout.widget_content);
-        String s = TextArray.get(position).getText();
-        remoteViews.setTextViewText(R.id.WidgetTextView, s);
+        String text = TextArray.get(position).getText();
+        remoteViews.setTextViewText(R.id.WidgetTextView, text);
         return remoteViews;
     }
 

@@ -5,5 +5,5 @@ package com.massive.voicetext;
  */
 
 public interface NotifyChange {
-    public void GetData(String s);
+    void GetData(String s);
 }

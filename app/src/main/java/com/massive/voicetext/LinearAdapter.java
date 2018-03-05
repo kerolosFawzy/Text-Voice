@@ -51,10 +51,10 @@ public class LinearAdapter extends RecyclerView.Adapter<LinearAdapter.ViewHolder
                         mContext.getContentResolver().delete(uri, "Id =" + id, null);
                         holder.linearLayout.setVisibility(View.GONE);
                     } else
-                        Toast.makeText(mContext, "There is No element With this id", Toast.LENGTH_LONG).show();
+                        Toast.makeText(mContext, R.string.no_element_exit, Toast.LENGTH_LONG).show();
 
                 } catch (Exception e) {
-                    Toast.makeText(mContext, "this Text Has allready Delteted Refresh The Page", Toast.LENGTH_LONG).show();
+                    Toast.makeText(mContext, R.string.refresh_the_page, Toast.LENGTH_LONG).show();
                 }
 
             }

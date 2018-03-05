@@ -7,5 +7,5 @@ import com.massive.voicetext.models.TextModel;
 import java.util.ArrayList;
 
 public interface GetDataFromCursorInterface {
-    public ArrayList<TextModel> GetData(Context context);
+    ArrayList<TextModel> GetData(Context context);
 }

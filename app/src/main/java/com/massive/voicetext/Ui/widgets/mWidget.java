@@ -6,7 +6,6 @@ import android.appwidget.AppWidgetProvider;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
-import android.support.annotation.NonNull;
 import android.widget.RemoteViews;
 
 import com.massive.voicetext.R;
@@ -27,13 +26,11 @@ public class mWidget extends AppWidgetProvider {
         MainIntent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, appWidgetId);
         MainIntent.setData(Uri.parse(MainIntent.toUri(Intent.URI_INTENT_SCHEME)));
         views.setRemoteAdapter(R.id.ContentList, MainIntent);
-        setRemoteAdapter(context, views);
+
+
         appWidgetManager.updateAppWidget(appWidgetId, views);
     }
 
-    private static void setRemoteAdapter(Context context, @NonNull final RemoteViews views) {
-        views.setRemoteAdapter(R.id.ContentList, new Intent(context, FavWidgetService.class));
-    }
 
     @Override
     public void onUpdate(Context context, AppWidgetManager appWidgetManager, int[] appWidgetIds) {
@@ -41,19 +38,17 @@ public class mWidget extends AppWidgetProvider {
             RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.m_widget);
             Intent intent = new Intent(context, FavWidgetService.class);
             views.setRemoteAdapter(R.id.ContentList, intent);
-            setRemoteAdapter(context, views);
             views.setEmptyView(R.id.ContentList, R.id.EmptyView);
             updateAppWidget(context, appWidgetManager, appWidgetId);
         }
-        super.onUpdate(context, appWidgetManager, appWidgetIds);
     }
 
     @Override
     public void onReceive(Context context, Intent intent) {
         super.onReceive(context, intent);
-//        if (Objects.equals(intent.getAction(), ACTION)) {
-//            //Intent intent1 = new Intent(context, FavouritActivity.class);
-//        }
+        if (intent.getAction().equals(ACTION)) {
+//            Toast.makeText(context, "Clicked", Toast.LENGTH_LONG).show();
+        }
     }
 
     @Override
