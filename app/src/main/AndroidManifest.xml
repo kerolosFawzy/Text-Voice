@@ -51,7 +51,7 @@
 
         <service android:name=".Ui.widgets.FavWidgetService" />
         <service
-            android:name=".ClipboardMonitorService"
+            android:name=".clipboardcode.ClipboardMonitorService"
             android:exported="false"
             android:label="Clipboard Monitor" />
     </application>

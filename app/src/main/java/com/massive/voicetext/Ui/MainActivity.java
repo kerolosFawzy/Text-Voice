@@ -46,7 +46,7 @@ public class MainActivity extends BaseActivity {
     Context context = this;
     static String id;
     private AdView mAdView;
-    String TranslatedString;
+//    String TranslatedString;
 
  
 

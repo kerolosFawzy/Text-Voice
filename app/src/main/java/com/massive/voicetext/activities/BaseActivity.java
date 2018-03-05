@@ -9,16 +9,13 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 
 import com.google.firebase.analytics.FirebaseAnalytics;
-import com.massive.voicetext.ClipboardMonitorService;
 import com.massive.voicetext.R;
 import com.massive.voicetext.Ui.FavouritActivity;
 import com.massive.voicetext.Ui.TextToVoiceActivity;
 import com.massive.voicetext.Utlis.Constant;
-import com.massive.voicetext.clipboardcode.ClipBoardMain;
 
 public class BaseActivity extends AppCompatActivity {
     private FirebaseAnalytics mFirebaseAnalytics;
-    public ClipBoardMain clipBoardMain;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,7 +23,6 @@ public class BaseActivity extends AppCompatActivity {
         mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
         fireBase();
 
-        ClipboardMonitorService service = new ClipboardMonitorService();
 
 //        try {
 //            getSupportActionBar().setDisplayShowHomeEnabled(true);

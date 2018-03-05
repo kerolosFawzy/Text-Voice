@@ -4,7 +4,9 @@ import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.speech.tts.TextToSpeech;
 import android.util.Log;
 import android.view.Menu;
@@ -57,16 +59,20 @@ public class TextToVoiceActivity extends BaseActivity implements TextToSpeech.On
             }
         });
 
-        ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
-        String pasteData = "";
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        boolean flag = sharedPreferences.getBoolean(getString(R.string.Read_text_key), false);
 
-        assert clipboard != null;
-        if ((clipboard.hasPrimaryClip())) {
-            ClipData.Item item = clipboard.getPrimaryClip().getItemAt(0);
-            pasteData = item.getText().toString();
-            InputText.setText(pasteData);
+        if (flag) {
+            ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
+            String pasteData = "";
+
+            assert clipboard != null;
+            if ((clipboard.hasPrimaryClip())) {
+                ClipData.Item item = clipboard.getPrimaryClip().getItemAt(0);
+                pasteData = item.getText().toString();
+                InputText.setText(pasteData);
+            }
         }
-
     }
 
     private void speakWords(String speech) {

@@ -1,5 +1,6 @@
-package com.massive.voicetext;
+package com.massive.voicetext.clipboardcode;
 
+import android.app.Application;
 import android.app.Service;
 import android.content.ClipData;
 import android.content.ClipboardManager;
@@ -16,6 +17,7 @@ public class ClipboardMonitorService extends Service {
     @Override
     public void onCreate() {
         super.onCreate();
+        Application application = new Application();
 
         clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
         assert clipboard != null;
@@ -29,6 +31,7 @@ public class ClipboardMonitorService extends Service {
                 Toast.makeText(getBaseContext(), "You Can Read These words In Voice$Text App", Toast.LENGTH_LONG).show();
             }
         });
+
 
     }
 

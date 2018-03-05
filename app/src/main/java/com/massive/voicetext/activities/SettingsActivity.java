@@ -138,39 +138,39 @@ public class SettingsActivity extends AppCompatPreferenceActivity {
      * Make sure to deny any unknown fragments here.
      */
     protected boolean isValidFragment(String fragmentName) {
-        return PreferenceFragment.class.getName().equals(fragmentName) || LanguagePreferenceFragment.class.getName().equals(fragmentName) || FeauterPreferenceFragment.class.getName().equals(fragmentName) || FontSizeChangePreferenceFragment.class.getName().equals(fragmentName);
+        return PreferenceFragment.class.getName().equals(fragmentName) || FeauterPreferenceFragment.class.getName().equals(fragmentName) || FontSizeChangePreferenceFragment.class.getName().equals(fragmentName);
     }
 
     /**
      * This fragment shows general preferences only. It is used when the
      * activity is showing a two-pane settings UI.
      */
-    @TargetApi(Build.VERSION_CODES.HONEYCOMB)
-    public static class LanguagePreferenceFragment extends PreferenceFragment {
-        @Override
-        public void onCreate(Bundle savedInstanceState) {
-            super.onCreate(savedInstanceState);
-            addPreferencesFromResource(R.xml.pref_language);
-            setHasOptionsMenu(true);
-
-            // Bind the summaries of EditText/List/Dialog/Ringtone preferences
-            // to their values. When their values change, their summaries are
-            // updated to reflect the new value, per the Android Design
-            // guidelines.
-//            bindPreferenceSummaryToValue(findPreference("example_text"));
-//            bindPreferenceSummaryToValue(findPreference("example_list"));
-        }
-
-        @Override
-        public boolean onOptionsItemSelected(MenuItem item) {
-            int id = item.getItemId();
-            if (id == android.R.id.home) {
-                startActivity(new Intent(getActivity(), SettingsActivity.class));
-                return true;
-            }
-            return super.onOptionsItemSelected(item);
-        }
-    }
+//    @TargetApi(Build.VERSION_CODES.HONEYCOMB)
+//    public static class LanguagePreferenceFragment extends PreferenceFragment {
+//        @Override
+//        public void onCreate(Bundle savedInstanceState) {
+//            super.onCreate(savedInstanceState);
+//            addPreferencesFromResource(R.xml.pref_language);
+//            setHasOptionsMenu(true);
+//
+//            // Bind the summaries of EditText/List/Dialog/Ringtone preferences
+//            // to their values. When their values change, their summaries are
+//            // updated to reflect the new value, per the Android Design
+//            // guidelines.
+////            bindPreferenceSummaryToValue(findPreference("example_text"));
+////            bindPreferenceSummaryToValue(findPreference("example_list"));
+//        }
+//
+//        @Override
+//        public boolean onOptionsItemSelected(MenuItem item) {
+//            int id = item.getItemId();
+//            if (id == android.R.id.home) {
+//                startActivity(new Intent(getActivity(), SettingsActivity.class));
+//                return true;
+//            }
+//            return super.onOptionsItemSelected(item);
+//        }
+//    }
 
     /**
      * This fragment shows notification preferences only. It is used when the
@@ -211,7 +211,6 @@ public class SettingsActivity extends AppCompatPreferenceActivity {
             addPreferencesFromResource(R.xml.pref_feauter);
             setHasOptionsMenu(true);
             bindPreferenceSummaryToValue(findPreference(getString(R.string.Read_text_key)));
-            bindPreferenceSummaryToValue(findPreference(getString(R.string.Translate_option_key)));
         }
 
         @Override
@@ -225,10 +224,4 @@ public class SettingsActivity extends AppCompatPreferenceActivity {
         }
     }
 }
-//TODO Make widget listview Works will --low
-//TODO show tap ot toast  --low
-//TODO use googletranslate api --about to delete it
-//TODO finish settings page
-//TODO check for network avaliable
-//TODO styling my views
-//TODO fix final issus
+//TODO Make widget listview Works will --high

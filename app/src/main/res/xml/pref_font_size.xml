@@ -4,6 +4,6 @@
         android:key="@string/font_size_input"
         android:title="@string/Font_Size"
         android:singleLine="true"
-
         />
+
 </PreferenceScreen>

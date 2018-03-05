@@ -2,10 +2,10 @@
 
     <!-- These settings headers are only used on tablets. -->
 
-    <header
-        android:fragment="com.massive.voicetext.activities.SettingsActivity$LanguagePreferenceFragment"
-        android:icon="@drawable/language_translate_icon"
-        android:title="@string/pref_header_Translate" />
+    <!--<header-->
+        <!--android:fragment="com.massive.voicetext.activities.SettingsActivity$LanguagePreferenceFragment"-->
+        <!--android:icon="@drawable/language_translate_icon"-->
+        <!--android:title="@string/pref_header_Translate" />-->
 
     <header
         android:fragment="com.massive.voicetext.activities.SettingsActivity$FontSizeChangePreferenceFragment"
