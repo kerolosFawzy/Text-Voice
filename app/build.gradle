@@ -3,9 +3,9 @@ apply plugin: 'com.android.application'
 android {
     signingConfigs {
         config {
-            keyAlias 'key 0'
+            keyAlias 'kero'
             keyPassword '123456'
-            storeFile file('E:/kero envorment/signed Apk File .jks')
+            storeFile file('E:/kero envorment/keyStore.jks')
             storePassword '123456'
         }
     }
@@ -30,8 +30,6 @@ android {
             signingConfig signingConfigs.config
         }
     }
-    productFlavors {
-    }
 }
 
 dependencies {
@@ -51,7 +49,8 @@ dependencies {
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
     implementation 'com.android.support:design:27.1.0'
     implementation 'com.github.ivbaranov:materialfavoritebutton:0.1.4'
-    compile project(path: ':javautli')
+    implementation 'com.firebase:firebase-jobdispatcher:0.8.5'
+    implementation project(path: ':javautli')
 }
 
 

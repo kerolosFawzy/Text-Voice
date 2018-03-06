@@ -46,9 +46,6 @@ public class mWidget extends AppWidgetProvider {
     @Override
     public void onReceive(Context context, Intent intent) {
         super.onReceive(context, intent);
-        if (intent.getAction().equals(ACTION)) {
-//            Toast.makeText(context, "Clicked", Toast.LENGTH_LONG).show();
-        }
     }
 
     @Override

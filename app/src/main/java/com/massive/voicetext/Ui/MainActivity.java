@@ -32,6 +32,8 @@ import butterknife.ButterKnife;
 
 public class MainActivity extends BaseActivity {
 
+    private static final int REQ_CODE_SPEECH_INPUT = 100;
+    static String id;
     @BindView(R.id.RecorderImageButton)
     ImageButton RecorderImageButton;
     @BindView(R.id.FavimageButton)
@@ -42,12 +44,8 @@ public class MainActivity extends BaseActivity {
     String Language;
     @BindView(R.id.MaterialFavoriteButton)
     MaterialFavoriteButton favoriteButton;
-    private static final int REQ_CODE_SPEECH_INPUT = 100;
     Context context = this;
-    static String id;
-    //    String TranslatedString;
-
- 
+    boolean flag;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -103,8 +101,6 @@ public class MainActivity extends BaseActivity {
 
         });
     }
-
-    boolean flag;
 
     private void ShowFavImageButtn() {
         FavimageButton.setVisibility(View.VISIBLE);

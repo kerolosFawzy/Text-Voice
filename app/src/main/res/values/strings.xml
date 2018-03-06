@@ -22,13 +22,13 @@
     <string name="Read_text">Read copied text</string>
     <string name="enter_your_text_hear">Enter your text hear</string>
     <string name="your_favoutite_words">Your Favourite words</string>
-    <string name="empty">There is no data to Show</string>
+    <string name="empty">There is no data to Show Add Some words to your Favourite list</string>
     <string name="rmove_from_favouirte">Remove From Favourite</string>
     <string name="favourt_button">this is Favourite button</string>
     <string name="text_to_voice">Text To Voice</string>
     <string name="speak">Speak</string>
     <string name="favourite">Favourite</string>
     <string name="no_element_exit">There is No element With this id</string>
-    <string name="refresh_the_page">this Text Has allready Delteted Refresh The Page</string>
+    <string name="refresh_the_page">this Text Has already Deleted Refresh The Page</string>
     <string name="this_is_favouirte_button">this is Favourite button</string>
 </resources>
