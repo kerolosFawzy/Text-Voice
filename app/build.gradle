@@ -5,7 +5,7 @@ android {
         config {
             keyAlias 'kero'
             keyPassword '123456'
-            storeFile file('E:/kero envorment/keyStore.jks')
+            storeFile file("$rootDir/keyStore.jks")
             storePassword '123456'
         }
     }
